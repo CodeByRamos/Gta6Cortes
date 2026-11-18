@@ -230,7 +230,11 @@ def write_ass(chunks, path: Path, layout="desfoque", zoom=1.25, titulo="", credi
         titulo = ""  # no layout câmera o título cobriria o rosto e as abas do TikTok
         title_v = 170
     side = 60 if layout == "horizontal" else 110  # botões laterais do TikTok/Reels
-    credit_v = title_v + (int(size * 1.5) if titulo else 0)
+    title_lines = 0
+    if titulo:  # estimativa de quebra de linha do título (fonte em negrito, caixa alta)
+        per_line = max(8, int((resx - 2 * side) / (size * 0.85 * 0.68)))
+        title_lines = -(-len(titulo) // per_line)
+    credit_v = title_v + int(size * 0.85 * 1.25 * title_lines) + (int(size * 0.3) if titulo else 0)
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {resx}
