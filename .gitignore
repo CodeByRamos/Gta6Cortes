@@ -1,0 +1,10 @@
+# gravações, clipes e prévias geradas pelo robô
+saida/
+*.mp4
+*.ts
+*.mkv
+*.wav
+# python
+__pycache__/
+*.pyc
+.venv/

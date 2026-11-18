@@ -1,0 +1,7 @@
+streamlink>=7.0
+faster-whisper>=1.1
+websocket-client>=1.8
+requests>=2.31
+curl_cffi>=0.7
+chat-downloader>=0.2.8
+numpy
